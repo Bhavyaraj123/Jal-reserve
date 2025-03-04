@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <nav class="w-full bg-white shadow-md px-6 py-4 flex justify-between items-center fixed top-0 left-0 right-0 z-50">
+        <div class="text-3xl font-extrabold tracking-wide">
+            <span class="text-[#0077b6]">Jal</span>
+            <span class="text-[#ffcc00]">Reserve</span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex space-x-6 text-lg font-medium">
+            <li><a href="/shop" class="hover:text-[#0077b6]">Shop</a></li>
+            <li><a href="/cart" class="hover:text-[#0077b6]">Cart</a></li>
+            <li><a href="/account" class="hover:text-[#0077b6]">My Account</a></li>
+            <li><a href="/user/logout" class="hover:text-red-500 text-red-600">Logout</a></li>
+        </ul>
+
+        <!-- Mobile Menu Button -->
+        <button id="menu-btn" class="md:hidden text-3xl focus:outline-none">
+            ☰
+        </button>
+    </nav>
+
+    <!-- Mobile Menu (Hidden by Default) -->
+    <div id="mobile-menu" class="hidden md:hidden fixed top-16 left-0 w-full bg-white shadow-md">
+        <ul class="flex flex-col text-lg font-medium p-4">
+            <li class="py-2 border-b"><a href="/shop" class="block hover:text-[#0077b6]">Shop</a></li>
+            <li class="py-2 border-b"><a href="/cart" class="block hover:text-[#0077b6]">Cart</a></li>
+            <li class="py-2 border-b"><a href="/account" class="block hover:text-[#0077b6]">My Account</a></li>
+            <li class="py-2"><a href="/user/logout" class="block hover:text-red-500 text-red-600">Logout</a></li>
+        </ul>
+    </div>
+
+    <script>
+        // Toggle mobile menu
+        document.getElementById("menu-btn").addEventListener("click", function () {
+            const menu = document.getElementById("mobile-menu");
+            menu.classList.toggle("hidden");
+        });
+    </script>
+</body>
+</html>

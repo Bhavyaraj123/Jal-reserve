@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Jal Reserve</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex bg-gradient-to-r from-blue-50 to-blue-100"> 
+    
+    <% if(success && success.length > 0){ %>
+        <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-mg bg-blue-500">
+                <span class="inline-block mt-1 text-white">
+                    <%= success %>
+                </span>
+            </div>
+
+
+        <%  } %>
+    <!-- Sidebar -->
+    <div class="w-64 bg-blue-700 text-white p-6 min-h-screen">
+        <h2 class="text-2xl font-bold mb-6">Jal Reserve</h2>
+        <nav>
+            <ul>
+                <li class="mb-4"><a href="#" class="block p-2 hover:bg-blue-600 rounded">All Products</a></li>
+                <li><a href="#" class="block p-2 hover:bg-blue-600 rounded">Create New Product</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Main Content -->
+     <form action="/products/createPro" method="post" enctype="multipart/form-data" class="w-full">
+    <div class="flex-1 p-10">
+        <h2 class="text-3xl font-bold text-blue-800 mb-6">Create New Product</h2>
+        
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-4xl">
+            <h3 class="text-xl font-semibold mb-4">Product Details</h3>
+            
+            <label class="block mb-2">Product Image</label>
+            <input type="file" name="image" class="block w-full mb-4 border p-2 rounded">
+            
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <input type="text" placeholder="Product Name" name="name" class="w-full p-2 border rounded">
+                <input type="text" placeholder="Product Price" name="price" class="w-full p-2 border rounded">
+            </div>
+            
+            <input type="text" placeholder="Discount Price" name="discount" class="w-full p-2 border rounded mb-4">
+            
+            <h3 class="text-xl font-semibold mb-4">Panel Details</h3>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <input type="text" name="bgColor" placeholder="Background color" class="w-full p-2 border rounded">
+                <input type="text" name="panelColor" placeholder="Panel color" class="w-full p-2 border rounded">
+            </div>
+            <input type="text" placeholder="textColor" name="textColor" class="w-full p-2 border rounded mb-4">
+            
+            <button class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Create New Product</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>

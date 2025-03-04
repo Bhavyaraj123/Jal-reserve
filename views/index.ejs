@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jal Reserve | Signup & Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-r from-[#E0F7FA] to-[#B3E5FC] flex flex-col items-center justify-center px-4 relative">
+
+    <!-- Logo at Top Left -->
+    <div class="absolute top-6 left-6">
+        <div class="text-4xl font-extrabold tracking-wide"> 
+            <span class="text-[#0077b6]">Jal</span>
+            <span class="text-[#ffcc00]">Reserve</span>
+        </div>   
+     </div>
+
+     <% if(error && error.length > 0){ %>
+        <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-mg bg-red-500">
+                <span class="inline-block mt-1 text-white">
+                    <%= error[0] %>
+                </span>
+            </div>
+
+
+        <%  } %>
+    <!-- Main Container -->
+    <div class="w-full max-w-5xl bg-white p-10 md:p-14 rounded-xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-10">
+
+        <!-- Signup Form -->
+        <div class="w-full md:w-1/2">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">Create Account</h2>
+            <form action="/register" method="POST" >
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-medium mb-1">Full Name</label>
+                    <input type="text" name="fullname" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0077b6]" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-medium mb-1">Email</label>
+                    <input type="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0077b6]" placeholder="Enter your email" required>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-medium mb-1">Password</label>
+                    <input type="password" name="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0077b6]" placeholder="Enter your password" required>
+                </div>
+
+                <button type="submit" class="w-full bg-[#0077b6] text-white py-2 rounded-lg hover:bg-[#005f99] transition duration-200 font-semibold">
+                    Sign Up
+                </button>
+            </form>
+        </div>
+
+        <!-- Divider Line for Larger Screens -->
+        <div class="hidden md:block w-[2px] bg-gray-300 h-72"></div>
+
+        <!-- Login Form -->
+        <div class="w-full md:w-1/2">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">Welcome Back</h2>
+            <form action="/login" method="POST">
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-medium mb-1">Email</label>
+                    <input type="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0077b6]" placeholder="Enter your email" required>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-medium mb-1">Password</label>
+                    <input type="password" name="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0077b6]" placeholder="Enter your password" required>
+                </div>
+
+                <button type="submit" class="w-full bg-[#ffcc00] text-gray-900 py-2 rounded-lg hover:bg-[#e6b800] transition duration-200 font-semibold">
+                    Login
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>
